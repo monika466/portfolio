@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monika Saravanan | Portfolio</title>
+
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --primary: #FFD700; /* Golden Yellow */
+            --primary-light: #FFF176;
+            --primary-dark: #FFC400;
+            --secondary: #000000; /* Black */
+            --accent: #FF6B00; /* Orange accent */
+            --accent-light: #FF9800;
+            --light: #FFFDE7; /* Light yellow */
+            --dark: #212121; /* Dark gray */
+            --gray: #757575;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            --gradient-light: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+            --zoho-blue: #2C5AA0;
+            --zoho-light-blue: #4A7BC8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--light);
+            background-color: var(--secondary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 10px;
+        }
+
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: var(--secondary);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline::before {
+            display: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            bottom: 10%;
+            right: 5%;
+            animation-delay: 3s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--primary);
+            top: 50%;
+            left: 80%;
+            animation-delay: 6s;
+        }
+
+        .shape-4 {
+            width: 250px;
+            height: 250px;
+            background: var(--accent);
+            bottom: 40%;
+            left: 10%;
+            animation-delay: 9s;
+        }
+
+        .shape-5 {
+            width: 180px;
+            height: 180px;
+            background: var(--primary);
+            top: 70%;
+            left: 70%;
+            animation-delay: 12s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, 20px) rotate(90deg); }
+            50% { transform: translate(0, 40px) rotate(180deg); }
+            75% { transform: translate(-20px, 20px) rotate(270deg); }
+        }
+
+        /* Geometric Pattern Overlay */
+        .pattern-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.1) 0%, transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(255, 107, 0, 0.1) 0%, transparent 55%);
+            z-index: -1;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(33, 33, 33, 0.8) 100%);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            top: -50%;
+            left: -50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text .highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--light);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 5px solid transparent;
+            background: var(--gradient) border-box;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            animation: profileFloat 5s ease-in-out infinite;
+        }
+
+        .profile-img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        @keyframes profileFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* About Section */
+        .about {
+            background-color: rgba(33, 33, 33, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-stats {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            animation: statPulse 3s infinite;
+        }
+
+        @keyframes statPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 215, 0, 0.15);
+            animation: none;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(33, 33, 33, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            animation: skillSlide 0.5s ease-out;
+        }
+
+        @keyframes skillSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .skill-list {
+            list-style: none;
+            z-index: 2;
+            position: relative;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .skill-list li:hover {
+            transform: translateX(5px);
+            color: var(--primary);
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Experience Section */
+        .experience {
+            background-color: rgba(33, 33, 33, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: rgba(33, 33, 33, 0.9);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(33, 33, 33, 0.9);
+            transform: rotate(45deg);
+            top: 15px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -10px;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover::after {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        /* Projects Section - Updated Styles */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #2d2d2d;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .project-img {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img::after {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .project-tag {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .project-tag:hover {
+            background: var(--gradient);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        /* Education Section */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: rgba(33, 33, 33, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .education-card h3 {
+            color: var(--primary);
+        }
+
+        .education-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            padding: 2rem;
+            background: rgba(33, 33, 33, 0.8);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        .contact-action {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background-color: rgba(33, 33, 33, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certification-card {
+            background: rgba(33, 33, 33, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .certification-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .certification-card h3 {
+            color: var(--primary);
+        }
+
+        .certification-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background-color: rgba(33, 33, 33, 0.8);
+        }
+
+        .achievements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background-color: rgba(33, 33, 33, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .achievement-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Zoho Marathon Section */
+        .zoho-marathon {
+            background: linear-gradient(135deg, rgba(33, 33, 33, 0.9) 0%, rgba(0, 0, 0, 0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .zoho-marathon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,215,0,0.05)"/></svg>');
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .zoho-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .zoho-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .zoho-logo-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .zoho-logo-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .zoho-logo {
+            width: 250px;
+            height: auto;
+        }
+
+        .zoho-marathons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .marathon-card {
+            background: rgba(45, 45, 45, 0.9);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .marathon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+            padding: 2px;
+            background: var(--gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .marathon-card:hover::before {
+            opacity: 1;
+        }
+
+        .marathon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .marathon-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        .marathon-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .marathon-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .marathon-highlights {
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .marathon-highlights h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .marathon-highlights ul {
+            list-style-type: none;
+        }
+
+        .marathon-highlights li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .marathon-highlights li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--light);
+            padding: 3rem 0 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .social-link:hover {
+            background: var(--gradient);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .spinner {
+            width: 70px;
+            height: 70px;
+            border: 5px solid rgba(255, 215, 0, 0.3);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.1;
+            animation: particle-float 20s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-1000px) rotate(720deg); }
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid var(--primary);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary); }
+        }
+
+        /* Glowing Border Animation */
+        .glow-border {
+            position: relative;
+        }
+
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient);
+            border-radius: 12px;
+            z-index: -1;
+            animation: glow 2s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .glow-border:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: blur(5px);
+                opacity: 0.5;
+            }
+            50% {
+                filter: blur(10px);
+                opacity: 1;
+            }
+        }
+
+        /* Project categories */
+        .project-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content, .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image {
+                text-align: center;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+
+            .timeline-content::before {
+                display: none;
+            }
+
+            .zoho-marathons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: rgba(0, 0, 0, 0.95);
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+                padding: 2rem 0;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .profile-img {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .marathon-card {
+                padding: 1.5rem;
+            }
+
+            .zoho-logo {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .profile-img {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+
+            .zoho-marathons {
+                grid-template-columns: 1fr;
+            }
+
+            .zoho-logo {
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+    </div>
+
+    <!-- Pattern Overlay -->
+    <div class="pattern-overlay"></div>
+
+    <!-- Particle Animation -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </a>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Monika.</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#zoho-marathon">Zoho Marathons</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span class="highlight">Monika Saravanan</span></h1>
+                    <p class="typewriter">Computer Engineering Student | Web Developer | AI/ML Enthusiast</p>
+                    <p>Dynamic and results-driven Computer Engineering student with 1.5+ years of hands-on experience in full-stack development, IoT systems, and software engineering.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-img">
+                        <!-- Original Unsplash profile image -->
+                       <img src="https://raw.githubusercontent.com/monika466/portfolio/main/WhatsApp%20Image%202025-11-27%20at%2021.16.29_fb893eba.jpg" alt="Profile Picture">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>A passionate and diligent 19-year-old student pursuing a Diploma in Computer Engineering. I am fascinated by the intersection of logic and creativity that programming offers. My focus is on developing clean, efficient software solutions that address everyday challenges.</p>
+                    <p>I am eager to leverage my technical skills and creative problem-solving abilities to build products that make a tangible impact.</p>
+                    <p>When I'm not coding, I enjoy exploring new technologies, reading about tech innovations, and participating in coding challenges to sharpen my problem-solving skills.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3>Education</h3>
+                            <p>Diploma in Computer Engineering</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div>
+                            <h3>Projects</h3>
+                            <p>10+ Completed</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <div>
+                            <h3>Languages</h3>
+                            <p>Tamil, English</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="education-container">
+                <div class="education-card glow-border">
+                    <div class="education-date">Jun 2024 – Mar 2026</div>
+                    <h3>Diploma in Computer Engineering</h3>
+                    <h4>PSG Polytechnic College, Coimbatore</h4>
+                    <p><strong>Activities:</strong> Secretary & Joint Secretary - Photography Club, Member - Coimbatore Productivity Council, Event Organizer - Student Rapid Response Force</p>
+                    <p><strong>Achievements:</strong> Overall Championship in Fields, Gold in Shot Put, Gold in Discus Throw, Gold in 4×100 Meters Relay</p>
+                </div>
+                <div class="education-card glow-border">
+                    <div class="education-date">Jun 2023 – Mar 2024</div>
+                    <h3>Higher Secondary Education</h3>
+                    <h4>Sri Ram Matric Hr Sec School, Dharmapuri</h4>
+                    <p><strong>Focus:</strong> Computer Biology</p>
+                    <p><strong>Activities:</strong> Ball Badminton, Shot Put, Discus Throw, Leadership, Basketball</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-laptop-code"></i> Programming</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>SQL</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-globe"></i> Web Development</h3>
+                    <ul class="skill-list">
+                        <li>Front-End Development</li>
+                        <li>Back-End Development</li>
+                        <li>Full Stack Development</li>
+                        <li>WordPress</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-database"></i> Database & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Microsoft SQL Server</li>
+                        <li>MySQL</li>
+                        <li>Git & GitHub</li>
+                        <li>MS Excel</li>
+                        <li>Raspberry Pi</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i> Domains & Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>IoT Systems</li>
+                        <li>AI/ML Concepts</li>
+                        <li>Data Structures</li>
+                        <li>Leadership</li>
+                        <li>Team Management</li>
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Apr 2025 – Jun 2025</div>
+                        <h3>HR Management & Web Developer Intern</h3>
+                        <h4>Equitas Small Finance Bank, Chennai</h4>
+                        <ul>
+                            <li>Developed and maintained company websites with responsive design</li>
+                            <li>Created marketing posters and digital content</li>
+                            <li>Implemented both front-end and back-end development solutions</li>
+                            <li>Assisted in HR management tasks and employee engagement activities</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Jun 2024 – Present</div>
+                        <h3>Freelance Web Developer</h3>
+                        <h4>Self-Employed</h4>
+                        <ul>
+                            <li>Designed and developed responsive websites for clients including Sri Kumaran Constructions and Valuations</li>
+                            <li>Created custom WordPress solutions to streamline client workflows</li>
+                            <li>Delivered professional online presence solutions for various businesses</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 – Present</div>
+                        <h3>Leadership Roles</h3>
+                        <h4>PSG Polytechnic College</h4>
+                        <ul>
+                            <li>Social Media Manager & Treasurer - NEC IIT Bombay (CELL PSGPTC)</li>
+                            <li>Secretary - Photography Club</li>
+                            <li>Event Organizer - Student Rapid Response Force</li>
+                            <li>Member - Coimbatore Productivity Council</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            
+            <!-- Web Development Projects -->
+            <div class="project-category">
+                <h3 class="category-title">Web Development Projects</h3>
+                <div class="projects-container">
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=80" alt="Construction Website">
+                        </div>
+                        <div class="project-content">
+                            <h3>Sri Kumaran Constructions and Valuations</h3>
+                            <p>Developed responsive website showcasing services and projects with intuitive user experience.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML/CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">WordPress</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/monika466/SRI-KUMARAN-CONSTRUCTIONS" target="_blank" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Learning Platform">
+                        </div>
+                        <div class="project-content">
+                            <h3>Skillsprout</h3>
+                            <p>Interactive learning platform with skill assessment and personalized learning paths.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Node.js</span>
+                                <span class="project-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/monika466/SKILLSPROUT" target="_blank" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80" alt="Fashion E-commerce">
+                        </div>
+                        <div class="project-content">
+                            <h3>FashionTrend</h3>
+                            <p>E-commerce platform for fashion products with advanced filtering and recommendation system.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML/CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">PHP</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Application Development -->
+            <div class="project-category">
+                <h3 class="category-title">Application Development</h3>
+                <div class="projects-container">
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=1000&q=80" alt="Educational Game">
+                        </div>
+                        <div class="project-content">
+                            <h3>GrammaticGame</h3>
+                            <p>Educational game for improving grammar skills with interactive challenges and progress tracking.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">Android</span>
+                                <span class="project-tag">SQLite</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/monika466/GRAMATICGAME" target="_blank" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80" alt="Airline System">
+                        </div>
+                        <div class="project-content">
+                            <h3>Airline Reservation Management System</h3>
+                            <p>Developed comprehensive flight booking and passenger management system.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">MySQL</span>
+                                <span class="project-tag">Swing</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1000&q=80" alt="Task Manager">
+                        </div>
+                        <div class="project-content">
+                            <h3>Priority Based Task Manager for Android</h3>
+                            <p>Built Android app with priority-based task organization and deadline tracking.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">Android</span>
+                                <span class="project-tag">SQLite</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI/ML Projects -->
+            <div class="project-category">
+                <h3 class="category-title">AI/ML Projects</h3>
+                <div class="projects-container">
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1000&q=80" alt="Facial Recognition">
+                        </div>
+                        <div class="project-content">
+                            <h3>FaceFinder</h3>
+                            <p>Facial recognition system with real-time detection and identity matching capabilities.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">OpenCV</span>
+                                <span class="project-tag">TensorFlow</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/monika466/FaceFinde_1" target="_blank" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1000&q=80" alt="Security System">
+                        </div>
+                        <div class="project-content">
+                            <h3>Phishing Detector</h3>
+                            <p>AI-powered system to detect and classify phishing websites with high accuracy.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Machine Learning</span>
+                                <span class="project-tag">Scikit-learn</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/monika466/phishing_detector-master" target="_blank" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card glow-border">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1000&q=80" alt="Resume Analysis">
+                        </div>
+                        <div class="project-content">
+                            <h3>Smart Resume Ranker</h3>
+                            <p>Intelligent system to analyze and rank resumes based on job requirements using NLP.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">NLP</span>
+                                <span class="project-tag">Flask</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/monika466/smart_resume_ranker" target="_blank" class="btn btn-outline">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="certifications-container">
+                <div class="certification-card glow-border">
+                    <div class="certification-date">Oct 2024</div>
+                    <h3>Full Stack Developer Program</h3>
+                    <h4>Physics Wallah</h4>
+                </div>
+                <div class="certification-card glow-border">
+                    <div class="certification-date">Oct 2024</div>
+                    <h3>Git and GitHub Bootcamp</h3>
+                    <h4>SkillEcted</h4>
+                </div>
+                <div class="certification-card glow-border">
+                    <div class="certification-date">Oct 2024</div>
+                    <h3>SQL 2.0 Webinar</h3>
+                    <h4>SkillEcted</h4>
+                </div>
+                <div class="certification-card glow-border">
+                    <div class="certification-date">Oct 2024</div>
+                    <h3>Effective Communication Skills for Interview</h3>
+                    <h4>Navshyadri Group of Institutes, Pune</h4>
+                </div>
+                <div class="certification-card glow-border">
+                    <div class="certification-date">Oct 2024</div>
+                    <h3>Coding Master</h3>
+                    <h4>SkillEcted</h4>
+                </div>
+                <div class="certification-card glow-border">
+                    <div class="certification-date">Oct 2024</div>
+                    <h3>Build Serverless Web Applications</h3>
+                    <h4>SkillEcted</h4>
+                </div>
+                <div class="certification-card glow-border">
+                    <div class="certification-date">Oct 2024</div>
+                    <h3>Learn MS Excel in 90 Minutes Bootcamp</h3>
+                    <h4>SkillEcted</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zoho Marathon Section -->
+    <section id="zoho-marathon" class="zoho-marathon">
+        <div class="container zoho-container">
+            <div class="zoho-header">
+                <div class="zoho-logo-container">
+                    <img src="https://www.zoho.com/branding/images/zoho-logo.png" alt="Zoho Logo" class="zoho-logo">
+                </div>
+                <div class="section-title">
+                    <h2>Zoho Schools of Learning Marathons</h2>
+                </div>
+            </div>
+            <div class="zoho-marathons">
+                <div class="marathon-card">
+                    <div class="marathon-icon">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="marathon-title">Zestober - Hacktober</h3>
+                    <div class="marathon-description">
+                        <p>Participated in Zoho's Zestober (Hacktober) marathon, a month-long coding challenge focused on developing innovative solutions and enhancing programming skills.</p>
+                        <p>Successfully completed the challenge and was selected for in-person evaluation based on the quality of submissions and problem-solving approach.</p>
+                    </div>
+                    <div class="marathon-highlights">
+                        <h4>Key Learnings</h4>
+                        <ul>
+                            <li>Consistency in learning and development</li>
+                            <li>Advanced problem-solving techniques</li>
+                            <li>Innovation in software development</li>
+                            <li>Collaboration and code review practices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="marathon-card">
+                    <div class="marathon-icon">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="marathon-title">Mathober - 31 Days Marathon</h3>
+                    <div class="marathon-description">
+                        <p>Engaged in Zoho's Mathober marathon, a 31-day intensive program focused on mathematical problem-solving and algorithmic thinking.</p>
+                        <p>Demonstrated strong analytical abilities and was shortlisted for further evaluation, showcasing dedication to continuous learning and skill development.</p>
+                    </div>
+                    <div class="marathon-highlights">
+                        <h4>Key Learnings</h4>
+                        <ul>
+                            <li>Mathematical logic and reasoning</li>
+                            <li>Algorithm optimization techniques</li>
+                            <li>Structured approach to problem-solving</li>
+                            <li>Time management in competitive environments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Achievements</h2>
+            </div>
+            <div class="achievements-container">
+                <div class="achievement-card">
+                    <h3>NEC Finalist</h3>
+                    <p>National Entrepreneurship Challenge</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Individual Championship Award</h3>
+                    <p>Fields (Intramurals)</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Gold Medals</h3>
+                    <p>Shot Put, Discus Throw, and 4×100 Meters Relay</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Project Delivery</h3>
+                    <p>Successfully managed and delivered 10+ technical projects during academic career</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Leadership Recognition</h3>
+                    <p>Recognized for leadership in multiple student organizations and clubs</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>Zoho Marathon Selection</h3>
+                    <p>Shortlisted and selected for in-person evaluation in both Zestober and Mathober marathons</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item glow-border">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>monikasaravanan0304@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item glow-border">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9363286665</p>
+                        </div>
+                    </div>
+                    <div class="contact-item glow-border">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Dharmapuri, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item glow-border">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p>linkedin.com/in/monika-s-05b379321</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-action">
+                    <h3>Let's Work Together!</h3>
+                    <p>I'm always open to discussing new opportunities and interesting projects.</p>
+                    <a href="mailto:monikasaravanan0304@gmail.com" class="btn">Email Me Directly</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <h3>Monika Saravanan</h3>
+                    <p>Computer Engineering Student | Web Developer | AI/ML Enthusiast</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/monika-s-05b379321" target="_blank" class="social-link">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/monika466" target="_blank" class="social-link">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Monika Saravanan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            const loading = document.querySelector('.loading');
+            setTimeout(function() {
+                loading.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const backToTop = document.querySelector('.back-to-top');
+            
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                backToTop.classList.add('active');
+            } else {
+                header.classList.remove('scrolled');
+                backToTop.classList.remove('active');
+            }
+        });
+
+        // Scroll animations
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.timeline-item, .project-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+
+        // Particle animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 10 + 5;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 20;
+                const duration = Math.random() * 10 + 10;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+    </script>
+</body>
+</html>
